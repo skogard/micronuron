@@ -6,6 +6,7 @@ import { wordlist } from '@scure/bip39/wordlists/english';
 import { v4 as uuidv4 } from 'uuid';
 import { saveAs } from 'file-saver';
 import * as JSZip  from "jszip"
+import Nextparty from 'nextparty'
 import styles from '../styles/Home.module.css'
 export default function Home() {
   const [ downloaded, setDownloaded ] = useState(false)
@@ -51,4 +52,14 @@ export default function Home() {
       }
     </main>
   );
+}
+export async function getServerSideProps({ req, res }) {
+  console.log("secret", process.env.SECRET)
+  const party = new Nextparty({ secret: process.env.SECRET })
+  let error = await party.protect("admin", req, res)
+  if (error) {
+    return error
+  } else {
+    return { props: {} }
+  }
 }
