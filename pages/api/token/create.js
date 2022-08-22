@@ -1,3 +1,4 @@
+require('dotenv').config()
 const Nurond = require('../../../lib/nurond')
 const config = require('../../../config')
 const Nextparty = require('nextparty')

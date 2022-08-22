@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 12px;
 }
 
 a {
@@ -16,24 +17,58 @@ a {
 }
 .main {
   font-family: Sans-serif;
-  margin: 50px auto;
+  margin: 0 auto;
   max-width: 500px;
+}
+nav {
+  text-align: right;
+  padding: 10px;
+  box-sizing: border-box;
+
 }
 textarea {
   width: 100%;
   height: 100px;
   box-sizing: border-box;
   padding: 10px;
+  border: none;
+  outline: none;
+}
+.menu-item {
+  padding: 10px;
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-bottom: none;
+  margin: 10px 10px 10px  0;
 }
 h2 {
   margin: 0;
+  margin-bottom: 10px;
 }
 .section {
-  border-bottom: 1px solid rgba(0,0,0,0.1);
   padding-bottom: 20px;
   margin-bottom: 20px;
+  padding: 20px;
+  background: rgba(0,0,0,0.05);
 }
-
+ol {
+  padding-inline-start: 15px;
+}
+.section button {
+  margin: 10px 0;
+  background: #1374EF;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border:none;
+  cursor:pointer;
+}
+b {
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
