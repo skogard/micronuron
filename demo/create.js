@@ -1,6 +1,6 @@
 const fetch = require("cross-fetch")
 const create = async () => {
-  let token = await fetch("https://micronurond.vercel.app/token/create", {
+  let token = await fetch("https://micronuron.vercel.app/api/token/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
