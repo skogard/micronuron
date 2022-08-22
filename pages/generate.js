@@ -15,7 +15,7 @@ export default function API() {
   return (
     <main className='main'>
       <nav>
-        <a href="/api/privateparty/gate/admin?callback=/">Logout</a>
+        <Link href="/api/privateparty/gate/admin?callback=/">Logout</Link>
       </nav>
       <h1>micronuron</h1>
       <div>
