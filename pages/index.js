@@ -46,7 +46,7 @@ export default function Home() {
       { generated &&
         <div className="section">
           <h2>Step 3. Deploy</h2>
-          <a target="_blank" href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fskogard%2Fmicronurond&env=SEED,ACCESS_TOKEN&envDescription=Enter%20the%20signer%20wallet%20seed%20phrase%20and%20API%20access%20token%20you%20created%20from%20nuron%20deploy&envLink=https%3A%2F%2Fdeploy.nuron.app&project-name=mnuron&repo-name=mnuron"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
+          <a target="_blank" rel="noreferrer" href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fskogard%2Fmicronuron&env=SEED,ACCESS_TOKEN&envDescription=Enter%20the%20signer%20wallet%20seed%20phrase%20and%20API%20access%20token%20you%20created%20from%20nuron%20deploy&envLink=https%3A%2F%2Fdeploy.nuron.app&project-name=mnuron&repo-name=mnuron"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
         </div>
       }
     </main>
