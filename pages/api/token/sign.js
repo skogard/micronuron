@@ -4,8 +4,8 @@ const config = require('../../../config')
 const Nextparty = require('nextparty')
 const party = new Nextparty({ secret: process.env.SECRET })
 const nuron = new Nurond()
-nuron.init(config)
 export default async function handler(req, res) {
+  await nuron.init(config)
   let error = await party.protect("admin", req, res)
   if (error) {
     return res.status(401).json(error)

@@ -2,9 +2,9 @@ const fetch = require("cross-fetch")
 const create = async () => {
 //  const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMHhmYjdiMjcxN2Y3YTJhMzBiNDJlMjFjZWYwM2RkMGZjNzZlZjc2MWU5IiwiZXhwaXJlc0luIjoyNTkyMDAwLCJzdWIiOiIweGZiN2IyNzE3ZjdhMmEzMGI0MmUyMWNlZjAzZGQwZmM3NmVmNzYxZTkiLCJhdWQiOiJhZG1pbiIsImF1dGgiOnsibWVtYmVyIjp0cnVlfSwiaWF0IjoxNjYxMTQyNDUwfQ.R13dAcz5H-WYRaMoJhpyueHgQISodtVOHw74C7kuqJI"
   //const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMHhmYjdiMjcxN2Y3YTJhMzBiNDJlMjFjZWYwM2RkMGZjNzZlZjc2MWU5IiwiZXhwaXJlc0luIjoyNTkyMDAwLCJzdWIiOiIweGZiN2IyNzE3ZjdhMmEzMGI0MmUyMWNlZjAzZGQwZmM3NmVmNzYxZTkiLCJhdWQiOiJhZG1pbiIsImF1dGgiOnsibWVtYmVyIjp0cnVlfSwiaWF0IjoxNjYxMTQyNTY1fQ.XjT7vmJZyv_wC2fsO0vB7w9PbsJ13xGQxcZPHmQN088"
-  const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMHhmYjdiMjcxN2Y3YTJhMzBiNDJlMjFjZWYwM2RkMGZjNzZlZjc2MWU5IiwiZXhwaXJlc0luIjoyNTkyMDAwLCJzdWIiOiIweGZiN2IyNzE3ZjdhMmEzMGI0MmUyMWNlZjAzZGQwZmM3NmVmNzYxZTkiLCJhdWQiOiJhZG1pbiIsImF1dGgiOnsibWVtYmVyIjp0cnVlfSwiaWF0IjoxNjYxMTY1ODQ2fQ.IAGaWo57MBQIN1GWgODy41sINozj5p_DdnQdYYPdjhY"
+  const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMHhmYjdiMjcxN2Y3YTJhMzBiNDJlMjFjZWYwM2RkMGZjNzZlZjc2MWU5IiwiZXhwaXJlc0luIjoyNTkyMDAwLCJzdWIiOiIweGZiN2IyNzE3ZjdhMmEzMGI0MmUyMWNlZjAzZGQwZmM3NmVmNzYxZTkiLCJhdWQiOiJhZG1pbiIsImF1dGgiOnsibWVtYmVyIjp0cnVlfSwiaWF0IjoxNjYxMTY2MjgwfQ.jXAXsJ0ghChwEolhfD--pJrHCgbeVsEs0m8VgDDWiP4"
   //let token = await fetch("https://mnn-seven.vercel.app/api/token/create", {
-  let token = await fetch("https://mmmm-skogard.vercel.app/api/token/create", {
+  let token = await fetch("https://m2-skogard.vercel.app/api/token/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
