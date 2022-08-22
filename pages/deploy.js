@@ -33,7 +33,7 @@ export default function Home() {
       </div>
       <div className="section">
         <h2>Step 1. Generate signing wallet</h2>
-        <div>click "generate" to generate a seed phrase (securely generated inside the browser)</div>
+        <div>click <strong>generate</strong> to generate a seed phrase (securely generated inside the browser)</div>
         <button id='generate' onClick={generate}>generate</button>
         { mn && mn.length > 0 &&
           <textarea id='bip39' readOnly value={mn}></textarea>
