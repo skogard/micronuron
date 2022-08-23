@@ -10,12 +10,21 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   const [ mn, setMn ] = useState("")
   const [ secret, setSecret ] = useState("")
+  const [ auth, setAuth ] = useState({})
   const generate = async () => {
     setMn(bip39.generateMnemonic(wordlist))
   }
   const generateSecret = () => {
     const uu = uuidv4();
     setSecret(uu)
+  }
+  const generateAuth = async () => {
+    let auth = await fetch("/api/fs/auth", {
+      method: "POST",
+    }).then((res) => {
+      return res.json()
+    })
+    setAuth(auth) 
   }
   return (
     <main className='main'>
@@ -51,30 +60,39 @@ export default function Home() {
       }
       { secret && secret.length > 0 &&
         <div className="section">
+          <h2>Step 3. Generate IPFS key</h2>
+          <div>Generate a decentralized auth token to publish your files to the IPFS network</div>
+          <button onClick={generateAuth}>generate</button>
+          { auth && Object.keys(auth).length > 0 &&
+          <div>
+            <b>Auth</b>
+            <textarea value={JSON.stringify(auth)} readOnly />
+          </div>
+          }
+        </div>
+      }
+      { auth && Object.keys(auth).length > 0 &&
+        <div className="section">
           <h2>Step 3. Deploy</h2>
           <div>Click the deploy button to go to the deployment page, and enter the following environment variables.</div>
           <div>
-            <b>SEED</b>
-            <textarea value={mn} readOnly />
-          </div>
-          <div>
             <b>SECRET</b>
-            <textarea value={secret} readOnly />
+            <textarea value={JSON.stringify({ seed: mn, secret, auth})} readOnly />
           </div>
           <div>
             <b>ADMIN</b>
             <div>The admin wallet address (Only the admin can generate API keys)</div>
           </div>
           <br/>
-          <a target="_blank" rel="noreferrer" href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fskogard%2Fmicronuron&env=SEED,SECRET,ADMIN&envDescription=Enter%20the%20signer%20wallet%20seed%20phrase%20and%20API%20admin%20address%20from%20nuron%20deploy&envLink=https%3A%2F%2Fdeploy.nuron.app&project-name=mnuron&repo-name=mnuron"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
+          <a target="_blank" rel="noreferrer" href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fskogard%2Fmicronuron&env=AUTH,ADMIN&envDescription=Enter%20the%20signer%20wallet%20seed%20phrase%20and%20API%20admin%20address%20from%20nuron%20deploy&envLink=https%3A%2F%2Fdeploy.nuron.app&project-name=mnuron&repo-name=mnuron"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
         </div>
       }
     </main>
   );
 }
 export async function getServerSideProps({ req, res }) {
-  console.log("secret", process.env.SECRET)
-  const party = new Nextparty({ secret: process.env.SECRET })
+  const auth = JSON.parse(process.env.AUTH)
+  const party = new Nextparty({ secret: auth.secret })
   let error = await party.protect("admin", req, res)
   if (error) {
     return error

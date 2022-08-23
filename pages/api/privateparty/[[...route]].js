@@ -1,6 +1,7 @@
 require('dotenv').config()
 const Nextparty = require('nextparty')
-const party = new Nextparty({ secret: process.env.SECRET })
+const auth = JSON.parse(process.env.AUTH)
+const party = new Nextparty({ secret: auth.secret })
 party.add("admin", {
   authorize: async (req, account) => {
     const list = process.env.ADMIN.split(",").map(l => l.toLowerCase())
