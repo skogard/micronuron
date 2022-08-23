@@ -91,7 +91,8 @@ export default function Home() {
   );
 }
 export async function getServerSideProps({ req, res }) {
-  const auth = JSON.parse(process.env.AUTH)
+  const auth = process.env.AUTH ? JSON.parse(process.env.AUTH) : {}
+  const secret = auth.secret ? auth.secret : ""
   const party = new Nextparty({ secret: auth.secret })
   let error = await party.protect("admin", req, res)
   if (error) {
